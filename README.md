@@ -92,16 +92,16 @@ In this case a few points could not be clarified:
 - Decision
   - Experiment a little, but since the requirements are generic, possibly just a simple postgres 2d array of boolean, stored as a field in the 'board' model.
 - Consequence
-  - The board will not be updatable efficiently.
+  - The board may not be mutable efficiently.
 
 
 #### Mine placement
 - Context
-  - We need to generate *n* randomly-placed bombs on the grid in a 'performant' manner; we need to avoid cvollisions with previously-placed bombs. If the board is 'full' this lookup needs to be efficient. A hash table of existing bombs is the obvious solution. Another option is to avoid the problem altogether, by using random nunmbers that don't collide, ie a maximal LSFR.
+  - We need to generate *n* randomly-placed bombs on the grid in a 'performant' manner; we need to avoid collisions with previously-placed bombs. If the board is 'full' this lookup needs to be efficient. A hash table of existing bombs is the obvious solution. Another option is to avoid the problem altogether, by using random numbers that don't collide, eg a maximal LSFR.
 - Decision
   - Use a hash table, maybe do the LFSR too for fun
 - Consequence
-  - Can handle very dense boards
+  - Can handle large dense boards.
 
 
 
