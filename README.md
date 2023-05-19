@@ -68,7 +68,7 @@ In this case a few points could not be clarified:
 - Context
   - Nothing is specified about the board parameters. Maximum size? The spec says board generation should return a 2d map of the board, so I assume 'any size' does not mean we need to accommodate arbitrary-sized boards.
 - Decision
-  Maximum board size will be 1000x1000. Simple validations that sides are <1000, #mines are less than #tiles.
+  - Maximum board size will be 1000x1000. Simple validations that sides are <1000, #mines are less than #tiles.
 - Consequence
   - Resources will be bounded.
 
@@ -97,7 +97,7 @@ In this case a few points could not be clarified:
 
 #### Mine placement
 - Context
-  - We need to generate n randomly-placed bombs on the grid in a 'performant' manner. We need to avoid cvollisions with previously-placed bombs. If the board is 'full' this lookup needs to be efficient. A hash table of existing bombs is the obvious solution. Another option is to avoid the problem altogether, by using random nunmbers that don't collide, ie an LSFR.
+  - We need to generate *n* randomly-placed bombs on the grid in a 'performant' manner; we need to avoid cvollisions with previously-placed bombs. If the board is 'full' this lookup needs to be efficient. A hash table of existing bombs is the obvious solution. Another option is to avoid the problem altogether, by using random nunmbers that don't collide, ie a maximal LSFR.
 - Decision
   - Use a hash table, maybe do the LFSR too for fun
 - Consequence
