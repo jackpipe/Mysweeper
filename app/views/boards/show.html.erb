@@ -1,0 +1,23 @@
+<% if notice.present? %>
+  <p class="px-3 px-4 mb-5 bg-green-60 text-green-500 font-medium rounded-lg inline-block" id="notice">
+    <%= notice %>
+  </p>
+<% end %>
+<p>
+  <strong>Name</strong>
+  <%= @board.name %>
+</p>
+<p>
+  <strong>Email</strong>
+  <%= @board.email %>
+</p>
+<p>
+  <strong>Dimensions</strong>
+  <%= @board.width %>
+</p>
+<p>
+  <strong>Mines</strong>
+  <%= @board.mines %>
+</p>
+<br>
+<%= link_to 'Back', :back, class: "btn-primary" %>

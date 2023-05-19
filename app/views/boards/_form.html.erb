@@ -1,0 +1,22 @@
+<%= form_with(model: board, local: true, class: "mb-7") do |form| %>
+    <%= form.label :name, "Name your board" %>
+    <%#= form.text_field :name, placeholder: board.p_please_bob, class: "inline-block w-96 px-3 py-2 mt-2 shadow rounded-md border border-gray-200 outline-none" %>
+    <%= form.text_field :name, placeholder: board.p_please_bob, class: "w-96 form-text-field" %>
+
+    <br>
+    <%= form.label :email, "Your email" %>
+    <%= form.text_field :email, placeholder: "your@email.address", class: "w-96 form-text-field" %>
+
+    <br>
+    <%= form.label :dimensions, "Dimensions (width x height)" %>
+    <%= form.text_field :width, default: board.width, class: "w-16 text-right form-text-field" %>
+
+    <%= form.label :x %>
+    <%= form.text_field :height, default: board.height, class: "w-16 text-right form-text-field" %>
+
+    <%= form.label :mines, 'Mines'%>
+    <%= form.text_field :mines, default: board.mines, class: "w-16 text-right form-text-field" %>
+
+    <%= form.submit "Generate Board", class: "btn-primary" %>
+<% end %>
+
