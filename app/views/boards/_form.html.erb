@@ -1,22 +1,35 @@
 <%= form_with(model: board, local: true, class: "mb-7") do |form| %>
+    <%# data: { turbo: false } %>
+    <strong>
     <%= form.label :name, "Name your board" %>
-    <%#= form.text_field :name, placeholder: board.p_please_bob, class: "inline-block w-96 px-3 py-2 mt-2 shadow rounded-md border border-gray-200 outline-none" %>
-    <%= form.text_field :name, placeholder: board.p_please_bob, class: "w-96 form-text-field" %>
+    </strong>
+    <%= form.text_field :name, placeholder: p_please_bob, class: "w-96 form-text-field" %>
 
     <br>
+    <strong>
     <%= form.label :email, "Your email" %>
+    </strong>
     <%= form.text_field :email, placeholder: "your@email.address", class: "w-96 form-text-field" %>
 
     <br>
-    <%= form.label :dimensions, "Dimensions (width x height)" %>
+
+    <strong>
+    <%= form.label :width, "Width" %>
+    </strong>
     <%= form.text_field :width, default: board.width, class: "w-16 text-right form-text-field" %>
 
-    <%= form.label :x %>
+    <strong>
+    <%= form.label :height, "Height"%>
+    </strong>
     <%= form.text_field :height, default: board.height, class: "w-16 text-right form-text-field" %>
 
+    <br>
+    <strong>
     <%= form.label :mines, 'Mines'%>
+    </strong>
     <%= form.text_field :mines, default: board.mines, class: "w-16 text-right form-text-field" %>
 
-    <%= form.submit "Generate Board", class: "btn-primary" %>
+    <br>
+    <%= form.submit "Generate Board", class: "btn-primary mt-4" %>
 <% end %>
 
