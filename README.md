@@ -97,9 +97,9 @@ In this case a few points could not be clarified:
 
 #### Mine placement
 - Context
-  - We need to generate *n* randomly-placed bombs on the grid in a 'performant' manner; we need to avoid collisions with previously-placed bombs. If the board is 'full' this lookup needs to be efficient. A hash table of existing bombs is the obvious solution. Another option is to avoid the problem altogether, by using random numbers that don't collide, eg a maximal LSFR.
+  - We need to generate *n* randomly-placed bombs on the grid in a 'performant' manner; we need to avoid collisions with previously-placed bombs. If the board is 'full' this lookup needs to be efficient. A hash collision algorithm is the obvious solution. Another option is to avoid the problem altogether, by using random numbers that don't collide, eg a maximal LSFR.
 - Decision
-  - Use a hash table, maybe do the LFSR too for fun
+  - Use some kind of hashing, =maybe do the LFSR too for fun
 - Consequence
   - Can handle large dense boards.
 
