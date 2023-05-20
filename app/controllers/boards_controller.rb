@@ -1,7 +1,7 @@
 class BoardsController < ApplicationController
 
   def index
-    @boards = Board.all
+    @boards = Board.all_recent_first
   end
 
   def show

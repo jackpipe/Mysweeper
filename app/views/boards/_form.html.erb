@@ -1,7 +1,7 @@
 <%= form_with(model: board, local: true, class: "mb-7") do |form| %>
     <%# data: { turbo: false } %>
     <strong>
-    <%= form.label :name, "Name your board" %>
+    <%= form.label :name, "Name it" %>
     </strong>
     <%= form.text_field :name, placeholder: p_please_bob, class: "w-96 form-text-field" %>
 

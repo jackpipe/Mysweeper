@@ -11,6 +11,7 @@ class Board < ApplicationRecord
   before_create :create_grid
 
   scope :recent, -> (num) { order(:created_at).reverse.first(num) }
+  scope :all_recent_first, -> { order(:created_at).reverse }
 
   validates :name, presence: true
   validates :email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP }   # There's a gem for this...
