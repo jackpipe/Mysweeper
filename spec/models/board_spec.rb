@@ -8,4 +8,13 @@ RSpec.describe Board, type: :model do
       it { should validate_presence_of(attr) }
     end
   end
+
+  context "Grid", focus: true do
+    it "creates a grid" do
+      #g = create_grid
+      #b place_mines( g, mines)
+      #b.compact.count = mines
+    end
+  end
 end
+
