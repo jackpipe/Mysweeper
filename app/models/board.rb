@@ -4,9 +4,6 @@ class Board < ApplicationRecord
   DEFAULT_HEIGHT = 10.freeze
   DEFAULT_DENSITY = 5.freeze  # 1/5
 
-  MAX_WIDTH = 1000.freeze
-  MAX_HEIGHT = 1000.freeze
-
   attribute :width, :integer, default: DEFAULT_WIDTH
   attribute :height, :integer, default: DEFAULT_HEIGHT
   attribute :mines, :integer, default: ((DEFAULT_WIDTH * DEFAULT_HEIGHT) / DEFAULT_DENSITY).to_int
