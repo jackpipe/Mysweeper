@@ -27,9 +27,9 @@ class Board < ApplicationRecord
   #
 
   # Create empty grid
-  # If the density of mines is > 50%, we initialise the board to be full of mines
+  # If the density of mines is > 50%, we initialize the board to be full of mines
   # and then clear the required number of tiles. This reduces how many tiles we
-  # have to place, and also the collision rate for naive placement.
+  # have to 'place', and also the collision rate for naive placement.
   def create_grid
     board_color = self.mines > (tiles / 2) ? true : false
 
@@ -104,12 +104,12 @@ class Board < ApplicationRecord
     t = 0
 
     self.height.times do
+      render << "\n" if t > 0   # we don't want leading \n
       self.width.times do
         c = grid[t] ? '💣' : '◻'
         render << c
         t += 1
       end
-      render << "\n"
     end
     render
   end

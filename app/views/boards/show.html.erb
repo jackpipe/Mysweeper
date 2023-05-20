@@ -22,8 +22,23 @@
   <strong>Mines</strong>
   <%= @board.mines %>
 </p>
+
+  <table>
+    <tr>
+      <td>
 <div class="whitespace-pre leading-none mt-2">
 <%= @board.render_grid %>
 </div>
+      </td>
+    </tr>
+    <tr class="text-right text-text-sm text-neutral-500">
+      <td>
+        <em>
+        <%= @board.created_at.strftime('%d %b %Y  %H:%M') %>
+        </em>
+      </td>
+    </tr>
+  </table>
 <br>
+
 <%= link_to 'Back', :back, class: "btn-primary" %>
