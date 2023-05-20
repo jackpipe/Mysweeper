@@ -1,17 +1,17 @@
-<tr>
-  <td>
+<tr data-link="<%= board_path(board) %>" onclick="window.location = this.dataset.link" >
+  <td class="px-4">
   <%= link_to board.name, board_path(board) %>
   </td>
-  <td>
-  <%= board.width.to_s + "x" + board.height.to_s%>
+  <td class="text-right px-4">
+    <%= dimensions(board) %>
   </td>
-  <td>
-  <%= board.mines %>
+  <td class="text-right px-4">
+    <%= board.mines %>
   </td>
-  <td>
-  <%= board.email %>
+  <td class="px-4">
+    <%= board.email %>
   </td>
-  <td>
-  <%= time_ago_in_words(board.created_at) + " ago" %>
+  <td class="px-4">
+    <%= ago(board) %>
   </td>
 </tr>

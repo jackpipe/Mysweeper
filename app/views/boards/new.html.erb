@@ -1,5 +1,11 @@
+<% if notice.present? %>
+  <p class="id='notice' mb-5 bg-teal-60 text-teal-500 font-medium rounded-lg inline-block">
+    <%= notice %>
+  </p>
+<% end %>
 <%= render "form", board: @board %>
 <br>
+<h2 class="font-bold text-lg mb-7">Recently generated boards</h2>
 <%= render "boards", boards: @boards %>
 <br>
 <br>

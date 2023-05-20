@@ -1,5 +1,3 @@
-require 'pry-remote'
-
 class BoardsController < ApplicationController
 
   def index
@@ -12,7 +10,7 @@ class BoardsController < ApplicationController
 
   def new
     @board = Board.new
-    @boards = Board.recent(3)
+    @boards = Board.recent(10)
   end
 
   def create

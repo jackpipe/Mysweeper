@@ -1,23 +1,29 @@
 <% if notice.present? %>
-  <p class="px-3 px-4 mb-5 bg-green-60 text-green-500 font-medium rounded-lg inline-block" id="notice">
+  <p class="id='notice' mb-5 bg-teal-60 text-teal-500 font-medium rounded-lg inline-block">
     <%= notice %>
   </p>
 <% end %>
-<p>
-  <strong>Name</strong>
-  <%= @board.name %>
-</p>
+<div class="mb-7">
+<h2 class="font-bold text-lg"><%= @board.name %></h2>
+<em>
+  <%= time_ago_in_words(@board.created_at) + " ago" %>
+</em>
+</div>
+
 <p>
   <strong>Email</strong>
-  <%= @board.email %>
+  <%= mail_to @board.email %>
 </p>
 <p>
   <strong>Dimensions</strong>
-  <%= @board.width %>
+  <%= dimensions(@board) %>
 </p>
 <p>
   <strong>Mines</strong>
   <%= @board.mines %>
 </p>
+<div class="whitespace-pre leading-none">
+<%= @board.render_grid %>
+</div>
 <br>
 <%= link_to 'Back', :back, class: "btn-primary" %>
