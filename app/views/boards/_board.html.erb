@@ -1,0 +1,17 @@
+<tr>
+  <td>
+  <%= link_to board.name, board_path(board) %>
+  </td>
+  <td>
+  <%= board.width.to_s + "x" + board.height.to_s%>
+  </td>
+  <td>
+  <%= board.mines %>
+  </td>
+  <td>
+  <%= board.email %>
+  </td>
+  <td>
+  <%= time_ago_in_words(board.created_at) + " ago" %>
+  </td>
+</tr>
