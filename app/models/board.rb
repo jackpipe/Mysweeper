@@ -41,12 +41,8 @@ class Board < ApplicationRecord
   scope :recent, -> (num) { order(:created_at).reverse.first(num) }
 
   validates :name, presence: true
-
-  # There's a gem for that, but this will do for now:
-  validates :email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP } 
-
-  # board validator, just presence for now
-  validates :width, :height, :mines, presence: true
+  validates :email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP }   # There's a gem for this...
+  validates_with BoardValidator   # validators/board_validator
  
 
   # what a card
