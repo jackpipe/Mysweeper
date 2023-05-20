@@ -104,12 +104,12 @@ class Board < ApplicationRecord
     t = 0
 
     self.height.times do
+      render << "\n" if t > 0   # we don't want leading \n
       self.width.times do
         c = grid[t] ? '💣' : '◻'
         render << c
         t += 1
       end
-      render << "\n"
     end
     render
   end
