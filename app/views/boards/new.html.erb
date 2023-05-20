@@ -4,10 +4,16 @@
   </p>
 <% end %>
 <h2 class="font-bold text-lg mb-7">Make a new board</h2>
+
+<div class="px-4">
 <%= render "form", board: @board %>
+</div>
+
 <br>
-<h2 class="font-bold text-lg mb-7">Recently generated boards</h2>
+<h2 class="font-bold text-lg mb-7">Latest boards</h2>
 <%= render "boards", boards: @boards %>
 <br>
 <br>
+<div class="px-4">
 <%= link_to "View all generated boards", :boards, class: "btn-primary" %>
+</div>
