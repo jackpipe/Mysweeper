@@ -35,7 +35,7 @@ rspec spec
 
 ## Design
 
-The requirements are documented in [[Ruby Task.docx]]. In summary:
+The requirements are documented in [Technical Challenge](OneStepTechnicalChallenge.pdf). In summary:
 
 - The root url provides a 'new board' form where we enter a board name, email, board dimensions and #bombs.
 - Creating the record takes us to a view of the record, showing the form info, and a representation of the generated board.
@@ -99,7 +99,7 @@ In this case a few points could not be clarified:
 
 #### Mine placement
 - Context
-  - We need to generate *n* randomly-placed bombs on the grid in a 'performant' manner; we need to avoid collisions with previously-placed bombs. If the board is 'full' this lookup needs to be efficient. A hash collision algorithm is the obvious solution. Another option is to avoid the problem altogether, by using random numbers that don't collide, eg a maximal LSFR.
+  - We need to generate *n* randomly-placed bombs on the grid in a 'performant' manner; we need to avoid collisions with previously-placed bombs. If the board is 'full' this lookup needs to be efficient. A hash collision algorithm is the obvious solution. Perhaps using a ruby set or similar. Another option is to avoid the problem altogether, by using random numbers that don't collide, eg a maximal LSFR.
 - Decision
   - Use some kind of hashing, =maybe do the LFSR too for fun
 - Consequence
