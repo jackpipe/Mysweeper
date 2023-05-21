@@ -41,12 +41,14 @@ class Board < ApplicationRecord
                                 
     n = board_color ? (tiles - self.mines) : self.mines
 
-    self.grid = set_tiles_lfsr(grid, n, !board_color)
+    self.grid = set_tiles_naive(grid, n, !board_color)
+    #self.grid = set_tiles_lfsr(grid, n, !board_color)
   end
 
 
   # Simply place mines or blanks at random, trying again if we get a collision.
-  # We should get at most 50% collision rate
+  # We should get at most 50% collision rate. If for some reason we wanted a
+  # lower collision rate, we could create and oversized hash of mine positions.
   def set_tiles_naive(grid, num, color)
     while num > 0
       tile = Random.rand(tiles)
@@ -62,6 +64,12 @@ class Board < ApplicationRecord
   # A maximal lfsr has the magical property of visiting each element of a ^2 range
   # in psuedo-random order. Since there are no collisions we don't need to check
   # if a mine has already been placed in that position.
+  # 
+  # The disadvantage is that it's not really random - At each size of lfsr
+  # we're just taking a different 'window' of that sequence depending on board size
+  # and number of mines.
+  # It's fairly convincing in general, but the naive allocator is probably a better
+  # choice if this were used seriously.
   def set_tiles_lfsr(grid, num, color)
     # Not-at-all-optimal selection of maximal lfsr taps for 2^n where n 4..32
     lfsr_taps = [
@@ -91,7 +99,7 @@ class Board < ApplicationRecord
 
 
   def set_tiles_randomized_heap_or_queue_or_linked_list(num, color)
-    # I mean we could, but seriously...
+    # I mean, we could ...
   end
 
 
