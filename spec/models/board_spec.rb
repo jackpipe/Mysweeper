@@ -42,6 +42,13 @@ RSpec.describe Board, type: :model do
       expect(g.count(true)).to eq(500_000)
       expect(g.count).to eq(1_000_000)
     end
+
+    it "creates a tiny grid" do
+      subject = Board.new(width: 2, height: 2, mines: 2)
+      g = subject.create_grid
+      expect(g.count(true)).to eq(2)
+      expect(g.count).to eq(4)
+    end
   end
 end
 
