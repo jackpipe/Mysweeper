@@ -50,6 +50,8 @@ class Board < ApplicationRecord
   # Use a set to keep track of allocated mines.
   # More correct in some ways, but actually slower than naive allocation, since
   # inserting items in the set is subject to collision as the hash gets fuller.
+  # So unless the hash is over-sized, the collision rate is no better than just trying to
+  # place a mine/tile directly (max 50%), but with additional overhead of hashing.
   def set_tiles_set(grid, num, color)
     set = Set.new
     while num > 0
