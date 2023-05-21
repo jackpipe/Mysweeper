@@ -41,22 +41,7 @@ class Board < ApplicationRecord
                                 
     n = board_color ? (tiles - self.mines) : self.mines
 
-    self.grid = set_tiles_naive(grid, n, !board_color)
-    #self.grid = set_tiles_set(grid, n, !board_color)
-  end
-
-
-  # Simply place mines or blanks at random, trying again if we get a collision.
-  # We should get at most 50% collision rate.
-  def set_tiles_naive(grid, num, color)
-    while num > 0
-      tile = Random.rand(tiles)
-      if not grid[tile] == color
-        grid[tile] = color
-        num -= 1
-      end
-    end
-    grid
+    self.grid = set_tiles_set(grid, n, !board_color)
   end
 
 
