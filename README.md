@@ -35,7 +35,7 @@ rspec spec
 
 ## Design
 
-The requirements are documented in [Technical Challenge](OneStepTechnicalChallenge.pdf). In summary:
+The requirements are documented in [Technical Challenge](OneStepTechnicalChallenge2021.pdf). In summary:
 
 - The root url provides a 'new board' form where we enter a board name, email, board dimensions and #bombs.
 - Creating the record takes us to a view of the record, showing the form info, and a representation of the generated board.
