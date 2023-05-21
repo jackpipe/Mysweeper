@@ -43,6 +43,7 @@ class Board < ApplicationRecord
 
     self.grid = set_tiles_naive(grid, n, !board_color)
     #self.grid = set_tiles_lfsr(grid, n, !board_color)
+    #self.grid = set_tiles_set(grid, n, !board_color)
   end
 
 
@@ -98,7 +99,23 @@ class Board < ApplicationRecord
   end
 
 
-  def set_tiles_randomized_heap_or_queue_or_linked_list(num, color)
+  # Use a set to keep track of allocated mines.
+  # Probablly the more correct implementation, but slower.
+  def set_tiles_set(grid, num, color)
+    set = Set.new
+    while num > 0
+      tile = Random.rand(tiles)
+      if not set.include?(tile)
+        set.add(tile)
+        grid[tile] = color
+        num -= 1
+      end
+    end
+    grid
+  end
+
+
+  def set_tiles_randomized_heap_or_queue_or_linked_list(grid, num, color)
     # I mean, we could ...
   end
 
