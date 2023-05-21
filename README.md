@@ -1,6 +1,6 @@
 # Mysweeper
 
-![Screenshot](screenshot.jpg)
+![Screenshot](screenshot.jpg | width=320)
 
 This is a small web service to design and record board layouts for the game Minesweeper, as an interview take-home test.
 
