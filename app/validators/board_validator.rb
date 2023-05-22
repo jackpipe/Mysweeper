@@ -14,19 +14,19 @@ class BoardValidator < ActiveModel::Validator
       record.errors.add(:width, "Dimensions must be integers")
 
     elsif record.width > MAX_WIDTH
-      record.errors.add(:width, "Too big! Max #{MAX_WIDTH}.")
+      record.errors.add(:width, "Too big! Max #{MAX_WIDTH}")
     elsif record.height > MAX_HEIGHT
-      record.errors.add(:width, "Too big! Max #{MAX_HEIGHT}.")
+      record.errors.add(:width, "Too big! Max #{MAX_HEIGHT}")
 
     elsif record.height <= 0 or record.width <= 0 or (record.height * record.width) < 2
       record.errors.add(:height, "The board must be at least 2 tiles.")
       record.errors.add(:width, "The board must be at least 2 tiles.")
 
     elsif not record.mines.is_a?(Integer)
-      record.errors.add(:mines, "Mines must be a number")
+      record.errors.add(:mines, "must be a number")
 
     elsif record.mines <= 0
-      record.errors.add(:mines, "Too easy! There must be some mines.")
+      record.errors.add(:mines, "Too easy! There must be some mines")
 
     else
       tiles = (record.width * record.height) - 1
