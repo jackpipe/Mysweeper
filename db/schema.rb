@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_19_121629) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_22_033849) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -23,6 +23,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_19_121629) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "grid", default: [], array: true
+    t.index ["created_at"], name: "index_boards_on_created_at", order: :desc
   end
 
 end
