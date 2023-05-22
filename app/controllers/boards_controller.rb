@@ -1,5 +1,7 @@
 class BoardsController < ApplicationController
 
+  RECENT = 10.freeze
+
   def index
     @boards = Board.all_recent_first
   end
@@ -10,7 +12,7 @@ class BoardsController < ApplicationController
 
   def new
     @board = Board.new
-    @boards = Board.recent(10)
+    @boards = Board.recent(RECENT)
   end
 
   def create
@@ -20,7 +22,7 @@ class BoardsController < ApplicationController
       if @board.save
         format.html { redirect_to @board, notice: "Board created!" }
       else
-        @boards = Board.recent(3)
+        @boards = Board.recent(RECENT)
         format.html { render :new, status: :unprocessable_entity }
       end
     end
