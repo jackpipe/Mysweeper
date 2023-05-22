@@ -1,8 +1,13 @@
-<% if notice.present? %>
-  <p class="id='notice' mb-5 bg-teal-60 text-teal-500 font-medium rounded-lg inline-block">
+<% if @board.errors.any? %>
+  <p class="id='alert' mb-5 bg-orange-60 text-orange-500 font-medium rounded-lg inline-block">
     <%= notice %>
+    <% @board.errors.full_messages.each do |message|%>
+      <%= message %>
+      <br>
+    <%end%>
   </p>
-<% end %>
+<%end%>
+
 <h2 class="font-bold text-lg mb-7">Make a new board</h2>
 
 <div class="px-4">
