@@ -15,8 +15,8 @@ class Board < ApplicationRecord
   # grid data could go in it's owm model instead of this, at the cost of a join
   scope :index_fields, -> { select(:id, :name, :email, :width, :height, :mines, :created_at) }
 
-  scope :all_recent_first, -> { index_fields.order(:created_at).reverse }
-  scope :recent, -> (num) { all_recent_first.first(num) }
+  scope :all_recent_first, -> { index_fields.order('created_at DESC') }
+  scope :recent, -> (num) { all_recent_first.limit(num) }
 
   validates :name, presence: true
   validates :email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP }   # There's a gem for this...
